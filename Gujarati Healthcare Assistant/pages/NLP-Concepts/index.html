@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Gujarati Healthcare Assistant - NLP Concepts</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=Geist+Mono&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {"on-primary-container": "#fefcff","surface-dim": "#d8dadc","background": "#f7f9fb","primary-fixed-dim": "#adc6ff","on-surface-variant": "#424754","primary": "#0058be","tertiary": "#515e64","inverse-on-surface": "#eff1f3","on-primary-fixed-variant": "#004395","primary-fixed": "#d8e2ff","error": "#ba1a1a","surface-variant": "#e0e3e5","surface-container-high": "#e6e8ea","surface-container": "#eceef0","surface-container-highest": "#e0e3e5","secondary-fixed": "#6ffbbe","secondary-fixed-dim": "#4edea3","on-tertiary-container": "#fbfdff","on-primary": "#ffffff","error-container": "#ffdad6","surface-bright": "#f7f9fb","outline-variant": "#c2c6d6","surface-tint": "#005ac2","on-primary-fixed": "#001a42","on-secondary": "#ffffff","outline": "#727785","tertiary-fixed-dim": "#bbc8d0","tertiary-container": "#6a767d","on-secondary-container": "#00714d","surface-container-low": "#f2f4f6","inverse-primary": "#adc6ff","surface-container-lowest": "#ffffff","on-error": "#ffffff","on-tertiary-fixed": "#111d23","inverse-surface": "#2d3133","on-surface": "#191c1e","on-tertiary-fixed-variant": "#3c494f","primary-container": "#2170e4","surface": "#f7f9fb","on-tertiary": "#ffffff","secondary-container": "#6cf8bb","secondary": "#006c49","tertiary-fixed": "#d7e4ec","on-background": "#191c1e","on-secondary-fixed-variant": "#005236","on-error-container": "#93000a","on-secondary-fixed": "#002113"},
+                    borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+                    spacing: { gutter: "24px", base: "4px", "bento-gap": "20px", "margin-desktop": "48px", "container-max": "1280px", "margin-mobile": "16px" },
+                    fontFamily: { "body-lg": ["Inter"], "display-lg-mobile": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "body-md": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "code": ["Geist Mono"] },
+                    fontSize: { "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }], "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }], "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }], "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }], "label-sm": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }], "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }], "code": ["14px", { lineHeight: "20px", fontWeight: "400" }] }
+                },
+            },
+        }
+    </script>
+    <style>
+        .concept-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+        .concept-card:hover { box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+        .section-header { scroll-margin-top: 80px; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+    <header class="sticky top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+        <nav class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+            <div class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Gujarati Healthcare Assistant</div>
+            <div class="hidden md:flex items-center gap-6 font-body-md text-body-md">
+                <a class="text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-200" href="../../index.html">Home</a>
+                <a class="text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-200" href="../About/index.html">About</a>
+                <a class="text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-200" href="../Features/Translator/index.html">Features</a>
+                <a class="text-primary font-semibold border-b-2 border-primary cursor-pointer transition-all duration-200" href="index.html">NLP Concepts</a>
+                <a class="text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-200" href="../Workflow/index.html">Workflow</a>
+                <a class="text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-200" href="../Comparative-Analysis/index.html">Compare</a>
+                <a class="text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-200" href="../Applications/index.html">Applications</a>
+                <a class="text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-200" href="../Research-Industry/index.html">Research & Industry</a>
+                <a class="text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-200" href="../Sustainability/index.html">Sustainability</a>
+                <a class="text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-200" href="../Contribution/index.html">Contribution</a>
+            </div>
+        </nav>
+    </header>
+    <main class="w-full">
+        <!-- Hero -->
+        <section class="relative min-h-[400px] flex items-center justify-center overflow-hidden px-margin-mobile md:px-margin-desktop pt-16">
+            <div class="max-w-container-max mx-auto relative z-10 text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 font-label-sm mb-6">
+                    <span class="material-symbols-outlined text-[18px]">neurology</span>
+                    NLP CONCEPTS
+                </div>
+                <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight text-on-surface mb-6">
+                    Natural Language Processing <span class="text-primary">Core Concepts</span>
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">A comprehensive reference covering Text Preprocessing, Feature Engineering, Language Representation, and Language Models — each technique explained with definition, purpose, working principle, examples, advantages, limitations, and applications for Gujarati clinical NLP.</p>
+                <div class="flex flex-wrap justify-center gap-3 mt-8">
+                    <a href="#text-preprocessing" class="px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 font-label-sm hover:bg-primary/20 transition-colors">Text Preprocessing</a>
+                    <a href="#feature-engineering" class="px-4 py-2 rounded-full bg-secondary/10 text-secondary border border-secondary/20 font-label-sm hover:bg-secondary/20 transition-colors">Feature Engineering</a>
+                    <a href="#language-representation" class="px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 font-label-sm hover:bg-primary/20 transition-colors">Language Representation</a>
+                    <a href="#language-models" class="px-4 py-2 rounded-full bg-secondary/10 text-secondary border border-secondary/20 font-label-sm hover:bg-secondary/20 transition-colors">Language Models</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TEXT PREPROCESSING ==================== -->
+        <section id="text-preprocessing" class="section-header py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 font-label-sm mb-4">
+                <span class="material-symbols-outlined text-[18px]">text_fields</span>
+                SECTION 1
+            </div>
+            <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight text-on-surface mb-12">Text Preprocessing</h2>
+
+            <!-- Sentence Segmentation -->
+            <div class="concept-card p-8 md:p-10 rounded-[24px] mb-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-primary text-[32px]">vertical_align_bottom</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface">1.1 Sentence Segmentation</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Definition</div>
+                            <p class="text-on-surface-variant">Sentence segmentation divides a block of clinical text into individual sentences by identifying sentence boundary markers such as periods, question marks, and exclamation points. For Gujarati, this involves detecting the પૂર્ણવિરામ (full stop |), while carefully handling abbreviations and medical acronyms that contain periods.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Purpose</div>
+                            <p class="text-on-surface-variant">To break unstructured clinical narratives into sentence-level units, which is the first step for all downstream NLP tasks. Proper segmentation ensures that each sentence is processed as a coherent linguistic unit rather than a jumbled block of text.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Working Principle</div>
+                            <p class="text-on-surface-variant">The algorithm scans text character-by-character, identifying boundary tokens (। ? !) while using a rule-based or ML-based disambiguation engine to distinguish sentence-final punctuation from abbreviations (e.g., "ડો." for doctor), decimal numbers, and acronyms common in medical records.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Example</div>
+                            <div class="bg-surface-container-low rounded-xl p-4">
+                                <div class="text-[13px] text-on-surface-variant mb-2">Input: "દર્દીને તાવ છે. તેમને ઉધરસ પણ છે. શું સારવાર આપવી?"</div>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <span class="bg-primary/10 px-3 py-1 rounded text-[12px] text-primary font-code">S1: દર્દીને તાવ છે.</span>
+                                    <span class="bg-primary/10 px-3 py-1 rounded text-[12px] text-primary font-code">S2: તેમને ઉધરસ પણ છે.</span>
+                                    <span class="bg-primary/10 px-3 py-1 rounded text-[12px] text-primary font-code">S3: શું સારવાર આપવી?</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Advantages</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Enables sentence-level feature extraction</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Foundation for all downstream NLP tasks</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Handles Gujarati full-stop (|) correctly</li>
+                            </ul>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Limitations</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Struggles with abbreviations containing periods</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> May split incorrectly on decimal numbers in dosages</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Applications</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Clinical note parsing, EHR data extraction</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Sentence-level translation and summarization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tokenization -->
+            <div class="concept-card p-8 md:p-10 rounded-[24px] mb-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-secondary text-[32px]">data_array</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface">1.2 Tokenization</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Definition</div>
+                            <p class="text-on-surface-variant">Tokenization segments each sentence into words, subwords, or symbols (tokens). For Gujarati, whitespace and punctuation serve as natural delimiters, but compound words and clitics require special handling for accurate medical term extraction.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Purpose</div>
+                            <p class="text-on-surface-variant">To convert raw text into a sequence of discrete tokens that serve as the atomic units for vocabulary building, vectorization, and model input. Proper tokenization preserves the meaning of multi-word medical terms and handles Gujarati's agglutinative morphology.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Working Principle</div>
+                            <p class="text-on-surface-variant">A tokenizer applies whitespace splitting, punctuation-aware segmentation, and optionally subword decomposition (via BPE, WordPiece, or Unigram models). For Gujarati, it must handle compound words like "દવાખાનું" (દવા + ખાનું) and clitics attached to verbs and nouns.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Example</div>
+                            <div class="bg-surface-container-low rounded-xl p-4">
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="bg-primary/10 px-3 py-1 rounded text-primary font-code text-code">"તાવ"</span>
+                                    <span class="text-on-surface-variant">+</span>
+                                    <span class="bg-primary/10 px-3 py-1 rounded text-primary font-code text-code">"આવે"</span>
+                                    <span class="text-on-surface-variant">+</span>
+                                    <span class="bg-primary/10 px-3 py-1 rounded text-primary font-code text-code">"છે"</span>
+                                    <span class="text-outline mx-2">→</span>
+                                    <span class="text-on-surface font-semibold">[તાવ, આવે, છે]</span>
+                                </div>
+                                <div class="text-[12px] text-on-surface-variant mt-2">Input: "તાવ આવે છે" → 3 tokens</div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Advantages</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Enables vocabulary building and counting</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Subword tokenization handles rare/OOV terms</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Foundation for all embedding and model input</li>
+                            </ul>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Limitations</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Whitespace tokenization fails on compound Gujarati words</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Subword splitting may break medical term meaning</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Applications</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Vocabulary creation, model input preparation</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Named Entity Recognition (NER) preprocessing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Noise Removal -->
+            <div class="concept-card p-8 md:p-10 rounded-[24px] mb-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-tertiary text-[32px]">cleaning_services</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface">1.3 Noise Removal</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-tertiary uppercase tracking-wider mb-1">Definition</div>
+                            <p class="text-on-surface-variant">Noise removal strips extraneous, non-informative elements from clinical text that interfere with NLP processing. This includes HTML tags, special characters, URLs, non-medical numbers, and inconsistent whitespace commonly found in digitized medical records.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-tertiary uppercase tracking-wider mb-1">Purpose</div>
+                            <p class="text-on-surface-variant">To eliminate artifacts from data digitization, OCR errors, and formatting that add no semantic value but increase vocabulary size and confuse downstream models. Clean data directly improves model accuracy and reduces training time.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-tertiary uppercase tracking-wider mb-1">Working Principle</div>
+                            <p class="text-on-surface-variant">Regex-based pattern matching identifies and removes markup tags, special Unicode symbols, URLs, email addresses, timestamps, and extra whitespace. A whitelist approach preserves Gujarati characters, medical symbols, and clinically relevant punctuation while stripping everything else.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-tertiary uppercase tracking-wider mb-1">Example</div>
+                            <div class="bg-surface-container-low rounded-xl p-4">
+                                <div class="grid grid-cols-2 gap-2 text-[13px]">
+                                    <span class="text-on-surface-variant">HTML tags</span><span class="text-on-surface font-semibold">&lt;p&gt;તાવ&lt;/p&gt; → તાવ</span>
+                                    <span class="text-on-surface-variant">Special chars</span><span class="text-on-surface font-semibold">★★★તાવ★★★ → તાવ</span>
+                                    <span class="text-on-surface-variant">Extra spaces</span><span class="text-on-surface font-semibold">તાવ   આવે → તાવ આવે</span>
+                                    <span class="text-on-surface-variant">Timestamps</span><span class="text-on-surface font-semibold">[12:45] તાવ → તાવ</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-tertiary uppercase tracking-wider mb-1">Advantages</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span> Reduces vocabulary size significantly</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span> Improves model accuracy and convergence speed</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span> Prevents downstream errors from garbled input</li>
+                            </ul>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-tertiary uppercase tracking-wider mb-1">Limitations</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Over-filtering may remove clinically relevant symbols</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Regex rules require maintenance for new noise types</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-label-sm text-tertiary uppercase tracking-wider mb-1">Applications</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span> EHR data cleaning, OCR post-processing</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span> Web-scraped medical content sanitization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Cleaning -->
+            <div class="concept-card p-8 md:p-10 rounded-[24px] mb-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-outline text-[32px]">spellcheck</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface">1.4 Text Cleaning</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-outline uppercase tracking-wider mb-1">Definition</div>
+                            <p class="text-on-surface-variant">Text cleaning goes beyond noise removal by correcting systematic errors in clinical text. This includes Unicode normalization, spell correction, case normalization, and expanding common medical abbreviations into their full forms for consistent representation.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-outline uppercase tracking-wider mb-1">Purpose</div>
+                            <p class="text-on-surface-variant">To normalize surface-level variations of the same underlying content so that models treat equivalent texts identically. This reduces sparsity and improves generalization by eliminating orthographic inconsistencies in clinical documentation.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-outline uppercase tracking-wider mb-1">Working Principle</div>
+                            <p class="text-on-surface-variant">Applies Unicode NFKC normalization to canonicalize Gujarati characters, uses a medical abbreviation dictionary for expansion, runs a spell checker with a clinical Gujarati lexicon, and standardizes digit formats. Each operation is configurable based on the specific clinical domain.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-outline uppercase tracking-wider mb-1">Example</div>
+                            <div class="bg-surface-container-low rounded-xl p-4">
+                                <div class="space-y-2 text-[13px]">
+                                    <div class="flex justify-between"><span class="text-on-surface-variant">Unicode norm</span><span class="text-on-surface font-semibold">કરો → કરો (NFKC)</span></div>
+                                    <div class="flex justify-between"><span class="text-on-surface-variant">Abbreviation expansion</span><span class="text-on-surface font-semibold">બી.પી. → બ્લડ પ્રેશર</span></div>
+                                    <div class="flex justify-between"><span class="text-on-surface-variant">Spell correction</span><span class="text-on-surface font-semibold">તાવ્ → તાવ</span></div>
+                                    <div class="flex justify-between"><span class="text-on-surface-variant">Digit normalization</span><span class="text-on-surface font-semibold">૧૦૨ → 102</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-outline uppercase tracking-wider mb-1">Advantages</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-outline text-[18px]">check_circle</span> Reduces vocabulary sparsity and OOV rate</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-outline text-[18px]">check_circle</span> Standardizes medical terminology across sources</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-outline text-[18px]">check_circle</span> Improves cross-dataset generalization</li>
+                            </ul>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-outline uppercase tracking-wider mb-1">Limitations</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Aggressive normalization may lose clinically meaningful variation</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Spell correction may introduce errors for rare medical terms</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-label-sm text-outline uppercase tracking-wider mb-1">Applications</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-outline text-[18px]">check_circle</span> Clinical terminology standardization</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-outline text-[18px]">check_circle</span> Multi-source EHR data harmonization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pipeline Flow -->
+            <div class="concept-card p-8 md:p-10 rounded-[24px] mb-8 bg-inverse-surface text-inverse-on-surface">
+                <h3 class="font-headline-md text-headline-md mb-6">Text Preprocessing Pipeline</h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                    <div>
+                        <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-3">
+                            <span class="material-symbols-outlined text-primary-fixed-dim">vertical_align_bottom</span>
+                        </div>
+                        <div class="font-label-sm text-primary-fixed-dim font-bold">Sentence Segmentation</div>
+                        <div class="text-[12px] opacity-70">Split into sentences</div>
+                    </div>
+                    <div>
+                        <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-3">
+                            <span class="material-symbols-outlined text-primary-fixed-dim">data_array</span>
+                        </div>
+                        <div class="font-label-sm text-primary-fixed-dim font-bold">Tokenization</div>
+                        <div class="text-[12px] opacity-70">Segment into tokens</div>
+                    </div>
+                    <div>
+                        <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-3">
+                            <span class="material-symbols-outlined text-primary-fixed-dim">cleaning_services</span>
+                        </div>
+                        <div class="font-label-sm text-primary-fixed-dim font-bold">Noise Removal</div>
+                        <div class="text-[12px] opacity-70">Strip extraneous data</div>
+                    </div>
+                    <div>
+                        <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-3">
+                            <span class="material-symbols-outlined text-primary-fixed-dim">spellcheck</span>
+                        </div>
+                        <div class="font-label-sm text-primary-fixed-dim font-bold">Text Cleaning</div>
+                        <div class="text-[12px] opacity-70">Normalize &amp; correct</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FEATURE ENGINEERING ==================== -->
+        <section id="feature-engineering" class="section-header py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <div class="border-t border-outline-variant/30 pt-16">
+            <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-secondary/10 text-secondary border border-secondary/20 font-label-sm mb-4">
+                <span class="material-symbols-outlined text-[18px]">tune</span>
+                SECTION 2
+            </div>
+            <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight text-on-surface mb-12">Feature Engineering</h2>
+
+            <!-- Bag of Words -->
+            <div class="concept-card p-8 md:p-10 rounded-[24px] mb-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-primary text-[32px]">checklist</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface">2.1 Bag of Words (BoW)</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Definition</div>
+                            <p class="text-on-surface-variant">Bag of Words creates a vocabulary of all unique tokens in the corpus and represents each document as a sparse vector of token counts. It disregards grammar and word order, focusing solely on term presence and frequency within the document.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Purpose</div>
+                            <p class="text-on-surface-variant">To transform raw text into a numerical format that machine learning algorithms can process. BoW serves as the simplest baseline for text classification tasks, providing a fixed-length feature vector for each document regardless of its length.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Working Principle</div>
+                            <p class="text-on-surface-variant">Build a vocabulary D of all unique tokens across the corpus. For each document, create a |D|-dimensional vector where each dimension counts the occurrences of the corresponding vocabulary term. The result is a sparse, high-dimensional matrix of shape (N_docs, |D|).</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Example</div>
+                            <div class="bg-surface-container-low rounded-xl p-4">
+                                <div class="grid grid-cols-2 gap-1 text-[13px] font-code">
+                                    <span class="text-on-surface-variant">તાવ</span><span class="text-primary text-right">1</span>
+                                    <span class="text-on-surface-variant">આવે</span><span class="text-primary text-right">1</span>
+                                    <span class="text-on-surface-variant">છે</span><span class="text-primary text-right">1</span>
+                                    <span class="text-on-surface-variant">દુખાવો</span><span class="text-primary text-right">2</span>
+                                    <span class="text-on-surface-variant border-t border-dashed border-outline-variant/30 pt-1 mt-1">Vocab Size</span><span class="text-primary text-right border-t border-dashed border-outline-variant/30 pt-1 mt-1">5,000</span>
+                                </div>
+                                <div class="text-[12px] text-on-surface-variant mt-2">Input: "દુખાવો થાય છે. તાવ આવે છે. દુખાવો વધે છે."</div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Advantages</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Simple, interpretable, fast to compute</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Baseline model for clinical classification</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Sparse representation is memory-efficient</li>
+                            </ul>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Limitations</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Ignores word order and context</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> High-dimensional and sparse</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Common words dominate (no weighting)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Applications</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Document classification, spam detection</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Baseline model for clinical text categorization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TF-IDF -->
+            <div class="concept-card p-8 md:p-10 rounded-[24px] mb-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-secondary text-[32px]">analytics</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface">2.2 TF-IDF</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Definition</div>
+                            <p class="text-on-surface-variant">Term Frequency-Inverse Document Frequency (TF-IDF) weighs a term by how often it appears in a document (TF) against how rarely it appears across the entire corpus (IDF). This down-weights common words and highlights distinctive medical terminology.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Purpose</div>
+                            <p class="text-on-surface-variant">To address BoW's limitation of treating all terms equally by assigning higher importance to terms that are frequent in a specific document but rare globally. This makes TF-IDF particularly effective for information retrieval and keyword extraction.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Working Principle</div>
+                            <p class="text-on-surface-variant">TF(t,d) = (count of term t in document d) / (total terms in d). IDF(t) = log(N / df(t)) where N is total documents and df(t) is document frequency. The final weight is TF(t,d) × IDF(t). Terms with high TF in few documents get the highest scores.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Example</div>
+                            <div class="bg-surface-container-low rounded-xl p-4">
+                                <div class="space-y-2 text-[14px]">
+                                    <div class="flex justify-between"><span class="text-on-surface-variant">તાવ (fever)</span><span class="text-secondary font-semibold font-code">TF-IDF: 0.874</span></div>
+                                    <div class="flex justify-between"><span class="text-on-surface-variant">શરદી (cold)</span><span class="text-secondary font-semibold font-code">TF-IDF: 0.652</span></div>
+                                    <div class="flex justify-between"><span class="text-on-surface-variant">છે (is)</span><span class="text-on-surface-variant font-code">TF-IDF: 0.023</span></div>
+                                    <div class="flex justify-between"><span class="text-on-surface-variant">માં (in)</span><span class="text-on-surface-variant font-code">TF-IDF: 0.011</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Advantages</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Down-weights common stopwords</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Emphasizes rare clinical terminology</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Corpus-adaptive importance scoring</li>
+                            </ul>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Limitations</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Still ignores word order and context</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Sparse high-dimensional representation</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Applications</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Information retrieval, keyword extraction</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Medical document ranking and search</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- N-Grams -->
+            <div class="concept-card p-8 md:p-10 rounded-[24px] mb-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-primary text-[32px]">polyline</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface">2.3 N-Grams</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Definition</div>
+                            <p class="text-on-surface-variant">N-Grams capture contiguous sequences of N tokens from a given text. Unigrams (N=1) capture single words, bigrams (N=2) capture word pairs, and trigrams (N=3) capture three-word phrases crucial for understanding medical context.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Purpose</div>
+                            <p class="text-on-surface-variant">To capture local word order and phrase-level meaning that unigram models miss. Medical concepts often span multiple words (e.g., "બ્લડ પ્રેશર" for blood pressure), and N-Grams preserve these multi-word expressions as atomic features.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Working Principle</div>
+                            <p class="text-on-surface-variant">Slide a window of size N across the token sequence, extracting each contiguous N-token sequence as a feature. These N-Gram features are then counted or weighted (e.g., with TF-IDF) just like unigrams. A common range is N=1 to N=3 for comprehensive coverage.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Example</div>
+                            <div class="bg-surface-container-low rounded-xl p-4">
+                                <div class="grid grid-cols-3 gap-2 text-[13px]">
+                                    <div><span class="text-on-surface-variant">Unigrams:</span><br/><span class="text-on-surface font-code">દર્દીને, તાવ, અને, શરદી, છે</span></div>
+                                    <div><span class="text-on-surface-variant">Bigrams:</span><br/><span class="text-on-surface font-code">દર્દીને તાવ, તાવ અને, અને શરદી</span></div>
+                                    <div><span class="text-on-surface-variant">Trigrams:</span><br/><span class="text-on-surface font-code">દર્દીને તાવ અને, તાવ અને શરદી</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Advantages</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Captures multi-word medical expressions</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Preserves Gujarati compound phrase meaning</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Configurable N-range for flexible extraction</li>
+                            </ul>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Limitations</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Exponential feature explosion as N increases</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Data sparsity for higher-order N-Grams</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Applications</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Clinical phrase extraction, language identification</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Medical text classification with phrase-level features</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Combined Comparison -->
+            <div class="concept-card p-8 md:p-10 rounded-[24px] mb-8 bg-inverse-surface text-inverse-on-surface">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-primary-fixed-dim text-[32px]">compare_arrows</span>
+                    <h3 class="font-headline-md text-headline-md">BoW vs TF-IDF vs N-Grams</h3>
+                </div>
+                <p class="opacity-80 font-body-md mb-6">Each technique serves a different purpose. BoW provides raw term presence; TF-IDF adds corpus-level importance weighting; N-Grams capture phrase-level context. In practice, they are often combined — TF-IDF weighted N-Grams (range 1-3) offer the best balance for Gujarati clinical NLP, yielding ~40% improvement in classification accuracy over BoW alone.</p>
+                <div class="bg-white/10 rounded-xl p-4 border border-white/10">
+                    <div class="space-y-2 text-[13px]">
+                        <div class="flex justify-between"><span>BoW</span><span class="text-primary-fixed-dim">Counts, simple baseline</span></div>
+                        <div class="flex justify-between"><span>TF-IDF</span><span class="text-primary-fixed-dim">Weighted, corpus-aware</span></div>
+                        <div class="flex justify-between"><span>N-Grams</span><span class="text-primary-fixed-dim">Phrase context, configurable N</span></div>
+                        <div class="flex justify-between border-t border-white/10 pt-2 mt-2"><span class="font-bold">Combined</span><span class="text-primary-fixed-dim font-bold">TF-IDF + N-Grams (1-3) → Best accuracy</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== LANGUAGE REPRESENTATION ==================== -->
+        <section id="language-representation" class="section-header py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <div class="border-t border-outline-variant/30 pt-16">
+            <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 font-label-sm mb-4">
+                <span class="material-symbols-outlined text-[18px]">network_node</span>
+                SECTION 3
+            </div>
+            <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight text-on-surface mb-12">Language Representation</h2>
+
+            <!-- Word Embeddings -->
+            <div class="concept-card p-8 md:p-10 rounded-[24px] mb-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-primary text-[32px]">network_node</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface">3.1 Word Embeddings (Word2Vec, GloVe, FastText)</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Definition</div>
+                            <p class="text-on-surface-variant">Word embeddings map each word to a fixed-length dense vector (typically 100-300 dimensions) in a continuous vector space. Word2Vec (CBOW/Skip-gram) learns from local context windows, GloVe leverages global co-occurrence statistics, and FastText adds character n-gram subword information.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Purpose</div>
+                            <p class="text-on-surface-variant">To capture semantic and syntactic relationships between words in a dense, low-dimensional space. Unlike sparse BoW vectors, embeddings encode that "તાવ" and "બુખાર" are semantically similar while being different from "હૃદય" (heart).</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Working Principle</div>
+                            <p class="text-on-surface-variant">Word2Vec uses a shallow neural network to predict a word from its context (CBOW) or context from a word (Skip-gram). GloVe factorizes the global word-word co-occurrence matrix. FastText represents words as bags of character n-grams, enabling subword-level understanding critical for Gujarati morphology.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Example</div>
+                            <div class="bg-surface-container-low rounded-xl p-4">
+                                <div class="space-y-2 text-[14px] font-code">
+                                    <div><span class="text-primary">તાવ</span> → બુખાર <span class="text-on-surface-variant">(Word2Vec: 0.89)</span></div>
+                                    <div><span class="text-primary">તાવ</span> → શરદી <span class="text-on-surface-variant">(GloVe: 0.74)</span></div>
+                                    <div><span class="text-primary">તાવ</span> → હૃદય <span class="text-on-surface-variant">(FastText: 0.21)</span></div>
+                                </div>
+                                <div class="text-[12px] text-on-surface-variant mt-2">Cosine similarity between Gujarati medical term vectors</div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Advantages</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Dense, low-dimensional vectors (100-300D)</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Semantic relationship encoding</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> FastText handles OOV and morphology</li>
+                            </ul>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Limitations</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Static vector per word — ignores polysemy</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Requires large corpus for quality training</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Applications</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Word similarity, analogy tasks</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Feature input for downstream classifiers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contextual Embeddings -->
+            <div class="concept-card p-8 md:p-10 rounded-[24px] mb-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-secondary text-[32px]">contextual_token</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface">3.2 Contextual Embeddings (ELMo, BERT, GPT)</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Definition</div>
+                            <p class="text-on-surface-variant">Contextual embeddings produce different vector representations for the same word depending on its surrounding context. ELMo uses bidirectional LSTMs, BERT uses masked language modeling, and GPT uses autoregressive generation — each yielding rich, context-aware representations.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Purpose</div>
+                            <p class="text-on-surface-variant">To address the polysemy problem that static embeddings cannot handle. The same medical term (e.g., "તાવ") can mean different things in different contexts — a symptom vs. a treatment response — and contextual embeddings capture these nuanced differences.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Working Principle</div>
+                            <p class="text-on-surface-variant">Deep neural networks (LSTM or Transformer) encode each token with awareness of all other tokens in the sentence. ELMo concatenates hidden states from bidirectional LSTM layers. BERT uses a Transformer encoder with masked language modeling. GPT uses a Transformer decoder with autoregressive language modeling.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Example</div>
+                            <div class="bg-surface-container-low rounded-xl p-4">
+                                <div class="space-y-2 text-[13px]">
+                                    <div><span class="text-on-surface-variant">"દર્દીને <span class="text-secondary font-semibold">તાવ</span> છે"</span> → symptom vector</div>
+                                    <div><span class="text-on-surface-variant">"દવાથી <span class="text-secondary font-semibold">તાવ</span> ઉતર્યો"</span> → treatment response vector</div>
+                                    <div><span class="text-on-surface-variant">"બાળકને <span class="text-secondary font-semibold">તાવ</span> આવે છે"</span> → pediatric context vector</div>
+                                </div>
+                                <div class="text-[12px] text-on-surface-variant mt-2">Same word "તાવ" gets different vectors in each context</div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Advantages</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Context-aware dynamic representations</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Handles polysemy and word sense disambiguation</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> State-of-the-art on most NLP benchmarks</li>
+                            </ul>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Limitations</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Computationally expensive (large models)</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Requires GPU for practical inference speed</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Applications</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Named Entity Recognition, Question Answering</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Clinical text classification, sentiment analysis</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Static vs Contextual Comparison -->
+            <div class="concept-card p-8 md:p-10 rounded-[24px] mb-8 bg-inverse-surface text-inverse-on-surface">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-primary-fixed-dim text-[32px]">compare_arrows</span>
+                    <h3 class="font-headline-md text-headline-md">Static vs Contextual Embeddings</h3>
+                </div>
+                <p class="opacity-80 font-body-md mb-6">Static embeddings (Word2Vec, GloVe, FastText) assign one fixed vector per word — efficient but blind to polysemy. Contextual embeddings (ELMo, BERT, GPT) produce dynamic vectors that change with context. Using contextual embeddings yields ~35% improvement in NER accuracy over static embeddings alone for Gujarati clinical text.</p>
+                <div class="bg-white/10 rounded-xl p-4 border border-white/10">
+                    <div class="space-y-2 text-[13px]">
+                        <div class="flex justify-between"><span>Word2Vec</span><span class="text-primary-fixed-dim">Static, efficient, local context</span></div>
+                        <div class="flex justify-between"><span>GloVe</span><span class="text-primary-fixed-dim">Static, global co-occurrence</span></div>
+                        <div class="flex justify-between"><span>FastText</span><span class="text-primary-fixed-dim">Static, subword-aware, OOV robust</span></div>
+                        <div class="flex justify-between"><span>ELMo</span><span class="text-primary-fixed-dim">Contextual, bidirectional LSTM</span></div>
+                        <div class="flex justify-between"><span>BERT</span><span class="text-primary-fixed-dim">Contextual, masked LM, deep bidirectional</span></div>
+                        <div class="flex justify-between"><span>GPT</span><span class="text-primary-fixed-dim">Contextual, autoregressive, generative</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== LANGUAGE MODELS ==================== -->
+        <section id="language-models" class="section-header py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <div class="border-t border-outline-variant/30 pt-16">
+            <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-secondary/10 text-secondary border border-secondary/20 font-label-sm mb-4">
+                <span class="material-symbols-outlined text-[18px]">model_training</span>
+                SECTION 4
+            </div>
+            <h2 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight text-on-surface mb-12">Language Models</h2>
+
+            <!-- Neural Language Models -->
+            <div class="concept-card p-8 md:p-10 rounded-[24px] mb-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-primary text-[32px]">layers</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface">4.1 Neural Language Models (RNN/LSTM, GRU)</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Definition</div>
+                            <p class="text-on-surface-variant">Recurrent Neural Networks (RNNs), LSTMs, and GRUs process text sequentially, maintaining a hidden state that captures information from previous tokens. LSTMs use forget/input/output gates to combat vanishing gradients, while GRUs merge gates for efficiency.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Purpose</div>
+                            <p class="text-on-surface-variant">To model sequential dependencies in language by learning probability distributions over token sequences. These models excel at tasks where word order matters — from language modeling and generation to sequence labeling and classification of clinical text.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Working Principle</div>
+                            <p class="text-on-surface-variant">At each timestep t, the network takes token x_t and previous hidden state h_{t-1}, producing h_t = f(W·[h_{t-1}, x_t] + b). LSTMs add gated cell states for long-range memory. GRUs simplify to reset and update gates. All process tokens left-to-right, making them inherently sequential.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Example</div>
+                            <div class="bg-surface-container-low rounded-xl p-4">
+                                <div class="space-y-2 text-[13px] font-code">
+                                    <div class="flex justify-between"><span>Vanilla RNN</span><span class="text-on-surface-variant">Simple, struggles with long sequences</span></div>
+                                    <div class="flex justify-between"><span>LSTM</span><span class="text-primary font-semibold">3 gates, long-range memory</span></div>
+                                    <div class="flex justify-between"><span>GRU</span><span class="text-secondary font-semibold">2 gates, efficient, competitive</span></div>
+                                </div>
+                                <div class="text-[12px] text-on-surface-variant mt-3 pt-3 border-t border-dashed border-outline-variant/30">Input: "દર્દીને તાવ છે અને ઉધરસ આવે છે" → Hidden state tracks fever + cough co-occurrence across the sequence</div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Advantages</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Sequential token processing with hidden state</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> LSTM gates: forget, input, output for long memory</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> GRU: reset &amp; update gates (fewer params, faster)</li>
+                            </ul>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Limitations</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Sequential processing is slow (O(n) steps)</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Still struggles with very long-range dependencies</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-label-sm text-primary uppercase tracking-wider mb-1">Applications</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Language modeling, text generation</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-primary text-[18px]">check_circle</span> Sequence labeling (POS tagging, NER)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transformer-based Representations -->
+            <div class="concept-card p-8 md:p-10 rounded-[24px] mb-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-secondary text-[32px]">neurology</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface">4.2 Transformer-based Representations (BERT, GPT, mBERT, XLM-R)</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Definition</div>
+                            <p class="text-on-surface-variant">Transformers replace recurrence with parallelizable self-attention. BERT uses masked language modeling for bidirectional context, GPT uses autoregressive generation, and multilingual variants (mBERT supporting 104 languages, XLM-R supporting 100) extend these capabilities to Gujarati and other low-resource languages.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Purpose</div>
+                            <p class="text-on-surface-variant">To overcome the sequential bottleneck of RNNs by processing all tokens in parallel, capturing long-range dependencies more effectively. Multilingual variants enable zero-shot transfer — a model pre-trained on 100+ languages can understand Gujarati clinical text without Gujarati-specific training data.</p>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Working Principle</div>
+                            <p class="text-on-surface-variant">Self-attention computes query, key, and value matrices for all tokens simultaneously. Each token attends to every other token with learned attention weights. Multi-head attention (8-16 heads) captures different relationship types. Positional encoding injects token order information since the model has no inherent notion of sequence.</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Example</div>
+                            <div class="bg-surface-container-low rounded-xl p-4">
+                                <div class="space-y-1 text-[13px]">
+                                    <div class="flex justify-between"><span>mBERT</span><span class="text-on-surface-variant">Multilingual Masked LM (104 langs)</span></div>
+                                    <div class="flex justify-between"><span>XLM-R</span><span class="text-on-surface-variant">Cross-lingual, 100 langs, stronger</span></div>
+                                    <div class="flex justify-between"><span>GPT</span><span class="text-on-surface-variant">Autoregressive, generative tasks</span></div>
+                                    <div class="flex justify-between"><span>IndicBERT</span><span class="text-on-surface-variant">Indic language optimized variant</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Advantages</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Parallel processing (O(1) steps, not O(n))</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Global receptive field via self-attention</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Multilingual zero-shot transfer to Gujarati</li>
+                            </ul>
+                        </div>
+                        <div class="mb-6">
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Limitations</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> O(n²) memory complexity for self-attention</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-error text-[18px]">remove_circle</span> Requires large amounts of pre-training data</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-label-sm text-secondary uppercase tracking-wider mb-1">Applications</div>
+                            <ul class="space-y-1">
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Clinical document summarization, translation</li>
+                                <li class="flex items-center gap-2 text-[14px] text-on-surface"><span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span> Question answering, medical triage systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RNN/LSTM vs Transformer Comparison -->
+            <div class="concept-card p-8 md:p-10 rounded-[24px] mb-8 bg-inverse-surface text-inverse-on-surface">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-primary-fixed-dim text-[32px]">compare_arrows</span>
+                    <h3 class="font-headline-md text-headline-md">RNN/LSTM vs Transformer</h3>
+                </div>
+                <p class="opacity-80 font-body-md mb-6">RNNs process sequentially — each step depends on the previous hidden state (O(n) time). Transformers process in parallel using self-attention (O(1) steps but O(n²) memory). For Gujarati clinical text, RNNs are lightweight (2x faster inference with GRU) and suitable for edge devices, while transformers excel at long-range dependencies and large-scale understanding with multilingual support across 104 languages.</p>
+                <div class="bg-white/10 rounded-xl p-4 border border-white/10">
+                    <div class="space-y-2 text-[13px]">
+                        <div class="flex justify-between"><span>LSTM</span><span class="text-primary-fixed-dim">Sequential, O(n), gradient-gated</span></div>
+                        <div class="flex justify-between"><span>GRU</span><span class="text-primary-fixed-dim">Sequential, O(n), fewer gates, faster</span></div>
+                        <div class="flex justify-between"><span>BERT</span><span class="text-primary-fixed-dim">Parallel, O(1), bidirectional</span></div>
+                        <div class="flex justify-between"><span>GPT</span><span class="text-primary-fixed-dim">Parallel, O(1), autoregressive</span></div>
+                        <div class="flex justify-between"><span>mBERT</span><span class="text-primary-fixed-dim">104 languages, multilingual</span></div>
+                        <div class="flex justify-between"><span>XLM-R</span><span class="text-primary-fixed-dim">100 langs, cross-lingual SOTA</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-surface-container-lowest border-t border-outline-variant/30 w-full py-12">
+        <div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+            <div class="space-y-4">
+                <div class="font-headline-md text-headline-md text-on-surface font-bold">Gujarati Healthcare AI</div>
+                <p class="font-body-md text-on-surface-variant max-w-sm">&copy; 2024 Gujarati Healthcare AI. Clinical Grade Documentation. <br />Empowering the medical community through inclusive technology.</p>
+            </div>
+            <div class="flex flex-wrap gap-x-12 gap-y-4">
+                <div class="flex flex-col gap-2">
+                    <span class="font-label-sm text-on-surface uppercase opacity-50">Resources</span>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">GitHub</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Documentation</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Research Papers</a>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <span class="font-label-sm text-on-surface uppercase opacity-50">Support</span>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">API Status</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Safety Protocols</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Ethics Team</a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-container-max mx-auto px-margin-desktop mt-12 pt-8 border-t border-outline-variant/10 text-[12px] text-on-surface-variant opacity-60">
+            Disclaimer: This AI assistant is a support tool for clinical professionals and not a substitute for direct medical diagnosis.
+        </div>
+    </footer>
+    <script src="../../js/main.js"></script>
+</body>
+</html>

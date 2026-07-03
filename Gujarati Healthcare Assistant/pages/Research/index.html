@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Gujarati Healthcare Assistant - Research</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=Geist+Mono&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-container": "#fefcff","surface-dim": "#d8dadc","background": "#f7f9fb","primary-fixed-dim": "#adc6ff","on-surface-variant": "#424754","primary": "#0058be","tertiary": "#515e64","inverse-on-surface": "#eff1f3","on-primary-fixed-variant": "#004395","primary-fixed": "#d8e2ff","error": "#ba1a1a","surface-variant": "#e0e3e5","surface-container-high": "#e6e8ea","surface-container": "#eceef0","surface-container-highest": "#e0e3e5","secondary-fixed": "#6ffbbe","secondary-fixed-dim": "#4edea3","on-tertiary-container": "#fbfdff","on-primary": "#ffffff","error-container": "#ffdad6","surface-bright": "#f7f9fb","outline-variant": "#c2c6d6","surface-tint": "#005ac2","on-primary-fixed": "#001a42","on-secondary": "#ffffff","outline": "#727785","tertiary-fixed-dim": "#bbc8d0","tertiary-container": "#6a767d","on-secondary-container": "#00714d","surface-container-low": "#f2f4f6","inverse-primary": "#adc6ff","surface-container-lowest": "#ffffff","on-error": "#ffffff","on-tertiary-fixed": "#111d23","inverse-surface": "#2d3133","on-surface": "#191c1e","on-tertiary-fixed-variant": "#3c494f","primary-container": "#2170e4","surface": "#f7f9fb","on-tertiary": "#ffffff","secondary-container": "#6cf8bb","secondary": "#006c49","tertiary-fixed": "#d7e4ec","on-background": "#191c1e","on-secondary-fixed-variant": "#005236","on-error-container": "#93000a","on-secondary-fixed": "#002113"
+                    },
+                    borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+                    spacing: { gutter: "24px", base: "4px", "bento-gap": "20px", "margin-desktop": "48px", "container-max": "1280px", "margin-mobile": "16px" },
+                    fontFamily: { "body-lg": ["Inter"], "display-lg-mobile": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "body-md": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "code": ["Geist Mono"] },
+                    fontSize: { "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }], "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }], "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }], "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }], "label-sm": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }], "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }], "code": ["14px", { lineHeight: "20px", fontWeight: "400" }] }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+    <header class="sticky top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+        <nav class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+            <div class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Gujarati Healthcare Assistant</div>
+            <div class="hidden md:flex items-center gap-8 font-body-md text-body-md">
+                <a class="text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-200" href="../../index.html">Home</a>
+                <a class="text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-200" href="../About/index.html">About</a>
+                <a class="text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-200" href="../Features/Translator/index.html">Features</a>
+                <a class="text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-200" href="../NLP-Concepts/index.html">NLP Concepts</a>
+                <a class="text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-200" href="../Workflow/index.html">Workflow</a>
+                <a class="text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-200" href="../Comparative-Analysis/index.html">Compare</a>
+                <a class="text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-200" href="../Applications/index.html">Applications</a>
+                <a class="text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-200" href="../Research-Industry/index.html">Research & Industry</a>
+                <a class="text-on-surface-variant hover:text-primary cursor-pointer transition-all duration-200" href="../Sustainability/index.html">Sustainability</a>
+            </div>
+        </nav>
+    </header>
+    <main class="w-full">
+        <section class="py-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <div class="mb-12">
+                <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 font-label-sm mb-6">
+                    <span class="material-symbols-outlined text-[18px]">science</span>
+                    RESEARCH & DEVELOPMENT
+                </div>
+                <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight text-on-surface">
+                    Clinical NLP <span class="text-primary">Research</span>
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-4">Foundational research driving the next generation of Gujarati clinical language models.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-bento-gap mb-12">
+                <div class="glass-card p-8 rounded-[24px] text-center border-b-4 border-primary">
+                    <div class="font-display-lg text-primary mb-2">94%</div>
+                    <div class="font-label-sm text-on-surface-variant uppercase tracking-widest">Precision</div>
+                </div>
+                <div class="glass-card p-8 rounded-[24px] text-center border-b-4 border-secondary">
+                    <div class="font-display-lg text-secondary mb-2">89%</div>
+                    <div class="font-label-sm text-on-surface-variant uppercase tracking-widest">Recall</div>
+                </div>
+                <div class="glass-card p-8 rounded-[24px] text-center border-b-4 border-tertiary">
+                    <div class="font-display-lg text-tertiary mb-2">92%</div>
+                    <div class="font-label-sm text-on-surface-variant uppercase tracking-widest">F1 Score</div>
+                </div>
+            </div>
+            <div class="bento-grid">
+                <div class="col-span-12 md:col-span-6 glass-card rounded-[24px] overflow-hidden flex flex-col">
+                    <div class="h-2 bg-gradient-to-r from-primary to-primary-fixed-dim"></div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-2 text-primary font-bold mb-4">
+                            <span class="material-symbols-outlined">database</span>
+                            Gujarati Clinical Corpus v1.0
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg">
+                                <span class="text-[14px] text-on-surface">Release Date</span>
+                                <span class="text-[14px] text-primary font-semibold">Q3 2023</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg">
+                                <span class="text-[14px] text-on-surface">Total Tokens</span>
+                                <span class="text-[14px] text-primary font-semibold">12.4M</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg">
+                                <span class="text-[14px] text-on-surface">Domain Coverage</span>
+                                <span class="text-[14px] text-primary font-semibold">18 medical specialties</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg">
+                                <span class="text-[14px] text-on-surface">Annotation</span>
+                                <span class="text-[14px] text-primary font-semibold">3 expert clinicians</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12 md:col-span-6 glass-card rounded-[24px] overflow-hidden flex flex-col">
+                    <div class="h-2 bg-gradient-to-r from-secondary to-secondary-fixed"></div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-2 text-secondary font-bold mb-4">
+                            <span class="material-symbols-outlined">bar_chart</span>
+                            Cross-Lingual LLM Benchmarks
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg">
+                                <span class="text-[14px] text-on-surface">Evaluation Date</span>
+                                <span class="text-[14px] text-secondary font-semibold">Q1 2024</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg">
+                                <span class="text-[14px] text-on-surface">Models Tested</span>
+                                <span class="text-[14px] text-secondary font-semibold">7 LLMs</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg">
+                                <span class="text-[14px] text-on-surface">Top Performer</span>
+                                <span class="text-[14px] text-secondary font-semibold">Aegis-Bio-GU 7B</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg">
+                                <span class="text-[14px] text-on-surface">Improvement vs Baseline</span>
+                                <span class="text-[14px] text-secondary font-semibold">+18.3%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-surface-container-low/30">
+            <div class="max-w-container-max mx-auto">
+                <h2 class="font-headline-md text-headline-md text-on-surface mb-8">Frameworks Used</h2>
+                <div class="grid md:grid-cols-3 gap-bento-gap">
+                    <div class="glass-card p-8 rounded-[24px] text-center">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-3">smart_toy</span>
+                        <div class="font-label-sm text-on-surface mb-2">Hugging Face</div>
+                        <div class="text-[13px] text-on-surface-variant">Transformers, tokenizers, training pipelines for BERT and T5 fine-tuning</div>
+                    </div>
+                    <div class="glass-card p-8 rounded-[24px] text-center">
+                        <span class="material-symbols-outlined text-secondary text-4xl mb-3">psychology</span>
+                        <div class="font-label-sm text-on-surface mb-2">spaCy</div>
+                        <div class="text-[13px] text-on-surface-variant">Custom Gujarati clinical NER pipeline with entity rulers and trainable components</div>
+                    </div>
+                    <div class="glass-card p-8 rounded-[24px] text-center">
+                        <span class="material-symbols-outlined text-tertiary text-4xl mb-3">code</span>
+                        <div class="font-label-sm text-on-surface mb-2">NLTK</div>
+                        <div class="text-[13px] text-on-surface-variant">Text preprocessing, stemming, lemmatization and Gujarati stopword corpus</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <h2 class="font-headline-md text-headline-md text-on-surface mb-8">Research Timeline</h2>
+            <div class="relative">
+                <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-outline-variant/30"></div>
+                <div class="space-y-8">
+                    <div class="relative pl-16">
+                        <div class="absolute left-4 top-1 w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white"><span class="material-symbols-outlined text-[16px]">flag</span></div>
+                        <div class="glass-card p-6 rounded-xl"><div class="font-label-sm text-primary mb-1">Q1 2023</div><div class="text-[14px] text-on-surface font-medium">Project initiation — Gujarati clinical NLP feasibility study</div></div>
+                    </div>
+                    <div class="relative pl-16">
+                        <div class="absolute left-4 top-1 w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-white"><span class="material-symbols-outlined text-[16px]">flag</span></div>
+                        <div class="glass-card p-6 rounded-xl"><div class="font-label-sm text-secondary mb-1">Q3 2023</div><div class="text-[14px] text-on-surface font-medium">Gujarati Clinical Corpus v1.0 released with 12.4M tokens</div></div>
+                    </div>
+                    <div class="relative pl-16">
+                        <div class="absolute left-4 top-1 w-8 h-8 rounded-full bg-tertiary flex items-center justify-center text-white"><span class="material-symbols-outlined text-[16px]">flag</span></div>
+                        <div class="glass-card p-6 rounded-xl"><div class="font-label-sm text-tertiary mb-1">Q1 2024</div><div class="text-[14px] text-on-surface font-medium">Cross-lingual benchmark published — 7 LLMs evaluated on medical Gujarati</div></div>
+                    </div>
+                    <div class="relative pl-16">
+                        <div class="absolute left-4 top-1 w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-white"><span class="material-symbols-outlined text-[16px]">flag</span></div>
+                        <div class="glass-card p-6 rounded-xl"><div class="font-label-sm text-primary-container mb-1">Q3 2024</div><div class="text-[14px] text-on-surface font-medium">Production deployment — 4 clinical NLP services operational in Gujarat</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-surface-container-lowest border-t border-outline-variant/30 w-full py-12">
+        <div class="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+            <div class="space-y-4">
+                <div class="font-headline-md text-headline-md text-on-surface font-bold">Gujarati Healthcare AI</div>
+                <p class="font-body-md text-on-surface-variant max-w-sm">© 2024 Gujarati Healthcare AI. Clinical Grade Documentation. <br />Empowering the medical community through inclusive technology.</p>
+            </div>
+            <div class="flex flex-wrap gap-x-12 gap-y-4">
+                <div class="flex flex-col gap-2">
+                    <span class="font-label-sm text-on-surface uppercase opacity-50">Resources</span>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">GitHub</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Documentation</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Research Papers</a>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <span class="font-label-sm text-on-surface uppercase opacity-50">Support</span>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">API Status</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Safety Protocols</a>
+                    <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Ethics Team</a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-container-max mx-auto px-margin-desktop mt-12 pt-8 border-t border-outline-variant/10 text-[12px] text-on-surface-variant opacity-60">
+            Disclaimer: This AI assistant is a support tool for clinical professionals and not a substitute for direct medical diagnosis.
+        </div>
+    </footer>
+    <script src="../../js/main.js"></script>
+</body>
+</html>
