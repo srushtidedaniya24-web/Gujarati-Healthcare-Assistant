@@ -14,21 +14,22 @@ const menuBtn = document.getElementById('mobile-menu-btn');
 const menu = document.getElementById('mobile-menu');
 const closeBtn = document.getElementById('mobile-menu-close');
 const overlay = document.getElementById('mobile-menu-overlay');
+const drawer = document.getElementById('mobile-menu-drawer');
 
 function openMenu() {
-    menu.classList.remove('hidden');
+    menu.style.visibility = 'visible';
     document.body.style.overflow = 'hidden';
-    setTimeout(() => {
-        const drawer = document.getElementById('mobile-menu-drawer');
-        if (drawer) drawer.style.transform = 'translateX(0)';
-    }, 10);
+    requestAnimationFrame(() => {
+        drawer.classList.remove('translate-x-full');
+        drawer.classList.add('translate-x-0');
+    });
 }
 
 function closeMenu() {
-    const drawer = document.getElementById('mobile-menu-drawer');
-    if (drawer) drawer.style.transform = 'translateX(100%)';
+    drawer.classList.remove('translate-x-0');
+    drawer.classList.add('translate-x-full');
     setTimeout(() => {
-        menu.classList.add('hidden');
+        menu.style.visibility = 'hidden';
         document.body.style.overflow = '';
     }, 300);
 }
@@ -38,6 +39,6 @@ if (menuBtn && menu) {
     if (closeBtn) closeBtn.addEventListener('click', closeMenu);
     if (overlay) overlay.addEventListener('click', closeMenu);
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !menu.classList.contains('hidden')) closeMenu();
+        if (e.key === 'Escape' && menu.style.visibility === 'visible') closeMenu();
     });
 }
